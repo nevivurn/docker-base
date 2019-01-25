@@ -2,7 +2,7 @@
 
 export BASEDIR="/docker"
 export LOGDIR="${BASEDIR}/log"
-mkdir "$LOGDIR"
+[[ -d "$LOGDIR" ]] mkdir "$LOGDIR"
 
 cleanup() {
 	for sv in service/*/; do
