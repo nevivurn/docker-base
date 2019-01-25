@@ -5,17 +5,17 @@ export LOGDIR="${BASEDIR}/log"
 mkdir "$LOGDIR"
 
 cleanup() {
-	for sv in $(find service/ -mindepth 1 -maxdepth 1 -type d); do
-		SVNAME=$(basename $sv)
+	for sv in service/*; do
+		SVNAME=$(basename "$sv")
 		echo "stopping service ${SVNAME}..."
-		sv exit $sv &
+		sv exit "$sv" &
 	done
 }
 
-for sv in $(find service/ -mindepth 1 -maxdepth 1 -type d); do
+for sv in service/*; do
 	SVNAME=$(basename $sv)
 	echo "starting service ${SVNAME}..."
-	SVNAME=$SVNAME runsv $sv &
+	SVNAME=$SVNAME runsv "$sv" &
 done
 
 trap 'cleanup' SIGTERM SIGINT
