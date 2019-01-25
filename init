@@ -5,14 +5,14 @@ export LOGDIR="${BASEDIR}/log"
 mkdir "$LOGDIR"
 
 cleanup() {
-	for sv in service/*; do
+	for sv in service/*/; do
 		SVNAME=$(basename "$sv")
 		echo "stopping service ${SVNAME}..."
 		sv exit "$sv" &
 	done
 }
 
-for sv in service/*; do
+for sv in service/*/; do
 	SVNAME=$(basename $sv)
 	echo "starting service ${SVNAME}..."
 	SVNAME=$SVNAME runsv "$sv" &
