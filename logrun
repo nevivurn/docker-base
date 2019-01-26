@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+mkdir -p "${LOGDIR}/${SVNAME}"
+exec svlogd -ttt "${LOGDIR}/${SVNAME}"
