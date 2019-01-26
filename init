@@ -12,7 +12,7 @@ cleanup() {
 }
 
 for lsv in service/*/log/; do
-	if [ -x "${lsv}/run" ]; then
+	if [ ! -x "${lsv}/run" ]; then
 		cp "${BASEDIR}/logrun" "${lsv}/run"
 	fi
 done
