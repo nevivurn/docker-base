@@ -8,5 +8,6 @@ RUN apk add --no-cache \
 
 COPY . /docker
 WORKDIR /docker
+VOLUME /docker/log
 
 CMD ["/docker/init"]
