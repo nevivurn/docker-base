@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.9
 
 # Runit & minor quality-of-life
 RUN apk add --no-cache \
